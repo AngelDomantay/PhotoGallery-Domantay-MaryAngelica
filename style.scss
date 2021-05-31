@@ -1,0 +1,604 @@
+
+/*Defining variables for the web theme*/
+$colors:#1A1817, #707070, #F5F5F5;
+
+/*fonts*/
+@font-face {
+    font-family: 'myFont1';
+    src: url("fonts/Bodoni.ttf") format("truetype");
+ }
+ $font1: 'myFont1';
+    
+ @font-face {
+    font-family: 'myFont2';
+    src: url("fonts/Signature Collection.ttf") format("truetype");
+ }
+ $font2: 'myFont2';
+
+ @font-face {
+    font-family: 'myFont3';
+    src: url("fonts/Montserrat-Thin.otf") format("opentype");
+ }
+ $font3: 'myFont3';
+
+
+@mixin font1{ //default styling for main font
+    font-family: 'myFont1', sans-serif;
+    letter-spacing: 0.1em;
+    font-size:6rem;
+}
+
+
+/*Removes default styling in browser*/
+body{
+    margin:0;
+    padding:0;
+    background-color: nth($colors, 3); /*Grayish white*/
+    color:nth($colors, 1);/*black*/
+    font-family: 'myFont3', sans-serif;/*Montserrat font*/
+}
+html, body {
+    height:100%;
+} 
+
+h1{
+    @include font1;
+}
+
+li{
+    list-style: none;
+    font-size:1.7rem;
+    margin-left:20%;
+    margin-top:15%;
+   
+    a{
+        color:nth($colors, 1)  
+    }
+
+    a:hover{
+        color:nth($colors, 2)
+    }
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(1, 1.2fr 5fr 1fr);
+    grid-template-rows: repeat(1, 500px);
+    /*border:1px solid red;*/
+    margin-top:5%;
+
+    h2{
+        font-family: 'myFont1', sans-serif;
+        letter-spacing: 0.1em;
+        color: nth($colors,1);
+        font-size:1.5rem;
+    }
+
+    .h-right{
+        display:grid;
+        grid-template-rows: 30% 70%;
+        text-align:center; /*centers content*/
+
+            img{
+                width:20%;
+            }
+    }
+
+    .mid{
+        background-image:url('img/home/header.png');
+        background-position:center;
+        /*background-attachment: fixed;*/
+        background-repeat: no-repeat;
+        background-size: cover; /*or 100%   100%*/
+
+            img{
+                /* padding:6% 12%;
+                padding:15%; /*over-rides current margin*/
+                width: 100%;
+            }
+            .pos{
+                position:absolute;
+                left:15%;
+                top:30%;
+            }
+            .pos2{
+                position:absolute;
+                left:20%;
+                top:51%;
+            }
+            
+    }
+
+    .h-left{
+        display:grid;
+        grid-template-rows: 60% 40%;
+    }
+
+}
+
+/*Gallery*/
+.pos3{
+    float:right;
+    padding-top:0%;
+    width:100%;
+    h1{
+        text-transform: uppercase;
+        float:right;
+         padding-right:8%;
+         margin:0 !important; /*overrides existing css*/
+    }
+}
+
+h3{
+    font-size:1.5rem;
+    letter-spacing: 0.1em;
+    font-family: 'myFont3', sans-serif;
+}
+
+/*Artist Statement*/
+.artist{ /*Using flex direction*/
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap; /*container automatically goes down*/
+    justify-content:center;
+    align-items: center; /*align items in middle of container*/
+    border:1px solid transparent;
+    span{
+        margin-top:10%;
+        text-align:center;
+        line-height:1.5em;
+        font-size:1.2em;
+        img{
+            width:100%;
+        }
+    }
+}
+
+.btn {
+    border: none;
+    color: transparent;
+    padding: 0.8em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'myFont3';
+  }
+  
+  .btn1 {
+    background-color: nth($colors, 3); 
+    color: nth($colors, 1); 
+    border: 1px solid nth($colors, 2);
+  }
+
+  .btn1:hover {
+    background-color: nth($colors, 1);
+    color:nth($colors, 3);
+    border: none;
+  }
+
+  /*Get in touch*/
+  .email{
+      display:flex;
+      flex-direction: column;
+      flex-wrap:wrap; /*container automatically goes down*/
+      justify-content:center;
+      align-items: center; /*align items in middle of container*/
+      margin-top:10%;
+      margin-bottom:10%;
+     /* border:1px solid red;*/
+      span{
+          width:100%;
+         /* border:1px solid green;*/
+
+          h1{ /*Get in touch*/
+            text-align: center;
+            font-size: 4em;
+          }
+      }
+
+      .e1{
+        border-top: 2px solid grey;
+        border-radius: 5px;
+         margin-top:2%;
+         margin-bottom:2%;
+         width:40%;
+     }
+
+
+    .input-container {
+        display: -ms-flexbox; /* IE10 */
+        display: flex;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      
+      .icon {
+        padding: 5px;
+        background: transparent;
+        color: black;
+        min-width: 50px;
+        text-align: center;
+        font-size:2em;
+      }
+      
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        background-color:nth($colors, 3) ;
+        border:1px solid nth($colors, 2);
+        
+      }
+      
+      .input-field:focus {
+         border:none;
+         background:none;
+      }
+      
+      /* Set a style for the submit button */
+      .btn3 {
+        background-color: nth($colors, 3);
+        color: nth($colors, 3);
+        border:1px solid nth($colors, 2);
+        cursor: pointer;
+        /*opacity: 1;*/
+        padding:0.5em 1em;
+        transition-duration: 0.4s;
+        display:inline-block;
+      }
+      
+      .btn3:hover {
+        background-color: nth($colors, 1);
+        border:none;
+      }
+    
+  }
+
+  /*Footer*/
+  footer{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color:black;
+
+      div{
+          color:white;
+
+          ul {
+            list-style-type: none;
+           /* margin: 0;
+            padding: 0;*/
+            overflow: hidden;
+          }
+          li{
+            display: inline;
+            margin:0;
+            padding:0;
+            text-align: center;
+            float: left;
+            margin-left:7%;
+            margin-top:2%;
+            margin-bottom:2%;
+            a{
+                text-decoration: none; /*removes underline*/
+                display:block;
+                text-transform: uppercase ;
+                list-style-type: none;
+                color:nth($colors, 2)  
+            }
+        
+            a:hover{
+                color:nth($colors, 3)
+            }
+
+            h3{
+                font-size:0.5em;
+            }
+        }
+      }
+
+      .f1{
+        width:70%;
+      }
+      .f2{
+        width:30%;
+      }
+  }
+
+  /*Portrait - Another Page*/
+  .portrait{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      /*height:1000px;*/
+      
+      img{
+        transition: transform 0.6s; /* Animation */
+      }
+      img:hover{
+        transition-duration: 0.6s ;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+      .p1{
+          width:10%;
+            section{
+                margin:0; /*overrides existing margin*/
+                
+                display:flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+            }
+
+            .s1{
+                height:20%; 
+                background-image:url('img/icons/i-sign.png');
+                background-position:center;
+                /*background-attachment: fixed;*/
+                background-repeat: no-repeat;
+                background-size: 100%; /*or 100%   100%*/
+                align-items: center;
+                margin-top:25%;
+                top:4%; margin-left:50%;
+                /*width:50%;*/
+                
+                }
+            .s2{
+                height:78.2%;
+                border-left:1px solid grey;
+                align-items: center;
+                margin-left:75%;
+                }
+        }
+      }
+      .p2{
+          width:90%;
+          h1{
+            padding-left:10%;
+          }
+        .inner-p{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding-left:7%;
+            margin-bottom:15%;
+
+            div {
+                margin-left:3%;
+                width:38%;
+
+                h3{
+                    margin-top:3%;
+                    margin-bottom:10%;
+                }
+            }
+            img{
+                width: 100%;;
+            }
+
+            /*abstract*/
+            span{
+                width:100%;
+                img{
+                    width:80%; /*first abstract pic*/
+                    margin-bottom:7%;
+                }
+                h5, h3{
+                    padding-right:7%;
+                    text-align:end;
+                }
+                .ab-2{
+                    display: flex;
+                    flex-direction: row;
+                   span{
+                      
+                       img{
+                           width:100%;
+                       }
+                    } 
+
+                    .padd1{
+                        padding-top:10%;
+                     
+                        h5, h3{
+                            padding-left:7%;
+                            text-align:start;
+                        }
+                    }
+                }
+            }
+        }
+    } /*end of portrait*/
+
+
+    /*Start of landscapes*/
+    h5{
+        font-family: 'myFont3';
+        font-size:1.1em;
+
+    }
+
+@media screen and (max-width:600px){
+
+    li{
+        margin-left:0%;
+    }
+    section{
+        grid-template-columns: 1fr;
+        margin-top:0%;
+        
+        h2{
+            text-align: center;
+        }
+        .mid{
+            .pos{
+                position:relative;
+                left:0%;
+                top:15%;
+                text-align: center;
+                }
+            .pos2{
+                position:relative;
+                text-align: center;
+                left:0%;
+                top:0%;
+            }
+        }
+
+        .h-right{
+            display:none;
+        }
+
+        .h-left{
+            display:none;
+        }
+    }
+
+    /*Home Gallery*/
+    .pos3{
+        h1{font-size: 4em;} 
+    }
+
+    /*Portrait*/
+    .portrait{
+        text-align: center;
+        h1{
+            padding-left:0%;
+            font-size:4em;
+          }
+        .p1{
+            display:none;
+        }
+        .p2{
+            width:100%;
+            h3{
+                font-size:1.2em;
+            }
+            .inner-p{
+                padding-left:0%;
+                justify-content: center;
+
+                /*abstact*/
+                span{
+                    img{
+                        width:100%;
+                    }
+                    h5, h3{
+                        padding:0% 5%;
+                        text-align:center;
+                    }
+                    .ab-2{
+                        flex-wrap:wrap; /*automatically wraps images*/
+                        img{
+                            padding-bottom:7%;
+                        } 
+                        .padd1{
+                            padding-top:0%;
+                            h5, h3{
+                                padding-left:0%;
+                                text-align:center;
+                            }
+                        }
+                    
+                    }
+
+                }
+                
+            }
+
+             
+        }
+       
+    }
+
+    /*footer*/
+    
+    footer {
+        div{
+            ul{
+                li{
+                    padding:2%;
+                    margin:0;
+                }
+            }
+        }
+        .f1{
+            width:100%;
+          }
+          .f2{
+            width:100%;
+          }
+    }
+}
+
+/*Ipad pro & Ipad* in portrait mode*/
+@media screen and (min-width:601px) and (max-width:1024px) and (orientation:portrait){
+    li{
+        margin-left:0%;
+    }
+    section{
+        .mid{
+            .pos{
+                top:12%;
+            }
+            .pos2{
+                top:30%;
+            }
+        }
+    }
+
+
+}
+
+/*Ipad pro & Ipad* in landscape mode*/
+@media screen and (min-width:601px) and (max-width:1024px) and (orientation:landscape){
+    li{
+        margin-left:0%;
+    }
+    section{
+        .mid{
+            .pos2{
+                top:58%;
+            }
+        }
+    }
+
+}
+
+/*1024 upwards*/
+@media screen and (min-width:1025px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(1, 1.2fr 5fr 1fr);
+        grid-template-rows: repeat(1, 80vh);
+        /*border:1px solid red;*/
+        margin-top:5%;
+
+        .mid{
+            .pos{
+                top:40vh;
+                }
+            .pos2{
+               
+                top:67vh;
+                }
+        }
+    }
+
+    /*.portrait{
+        .p1{
+            .s1{
+                background-size: 100% 100%; /*or 100%   100%*/
+           /* }
+        /*}
+    /*}*/
+
+ }
+   
+ 
